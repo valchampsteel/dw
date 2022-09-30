@@ -277,6 +277,7 @@ local creditsTab = win:Tab("CREDITS")
 mainTab:Toggle("Auto Farm",function(t)
     getgenv().autoFarm = t
     print("autofarm toggled")
+    AutoFarmDoods()
 end)
 
 
