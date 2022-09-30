@@ -273,17 +273,9 @@ local teleportTab = win:Tab("TELEPORT")
 local miscTab = win:Tab("MISCELLANEOUS")
 local creditsTab = win:Tab("CREDITS")
 
-
-mainTab:Toggle("Auto Farm",function(t)
-    getgenv().autoFarm = t
-    print("autofarm toggled")
-    AutoFarmDoods()
-end)
-
-
 mainTab:Toggle("Autofarm",function(t)
     getgenv().autoFarm = t
-    print("autofarm toggled")
+    print("Autofarm toggled")
     if t == true then 
         AutoFarmDoods()
     else 
@@ -291,6 +283,11 @@ mainTab:Toggle("Autofarm",function(t)
     end
 end)
 
+mainTab:Toggle("Trainer Farm",function(t)
+    getgenv().trainerFarm = t
+    print("Trainer Farm toggled")
+    AutoTrainerFarm()
+end)
 
 mainTab:Dropdown("Trainer",{
     "Riley - Crossroads",
