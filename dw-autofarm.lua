@@ -299,6 +299,10 @@ mainTab:Dropdown("Trainer",{
     getgenv().Trainer = t
 end)
 
+mainTab:Button("Reset All Settings",function()
+    reset_all()    
+    print("All settings have been reset.")
+end)
 
 settingsTab:Dropdown("Target Doodle", {
     "Angerler",
