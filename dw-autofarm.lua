@@ -274,14 +274,9 @@ local miscTab = win:Tab("MISCELLANEOUS")
 local creditsTab = win:Tab("CREDITS")
 
 
-mainTab:Toggle("Autofarm",function(t)
+mainTab:Toggle("Auto Farm",function(t)
     getgenv().autoFarm = t
     print("autofarm toggled")
-    if t == true then 
-        AutoFarmDoods()
-    else 
-        reset_all()
-    end
 end)
 
 
@@ -929,14 +924,16 @@ function check_doodle()
             getgenv().doodle_shiny = false 
         end
         if EnemyDoodle.Skin == 0 then
+            print("[check_doodle] Doodle has no skin.")
             getgenv().doodle_has_skin = false
         else 
-            print("[check_doodle] found Skin")
+            print("[check_doodle] Doodle has Skin: ", Skins[EnemyDoodle.RealName][EnemyDoodle.Skin].Name)
             getgenv().doodle_has_skin = true
             if Skins[EnemyDoodle.RealName][EnemyDoodle.Skin].Name == targetskin then
-            --Player.PlayerGui.MainGui.MainBattle.DoodleFront.NewSprite.Image 
+                print("[check_doodle] Doodle has target skin!")
                 getgenv().doodle_has_targetskin = true
             else 
+                print("[check_doodle] Doodle's skin is not the target skin.")
                 getgenv().doodle_has_targetskin = false
             end
         end 
@@ -947,15 +944,16 @@ end
 function perform_act()
     print("[perform_act] inside the function")
     if not getgenv().doodle_kill then 
-        if (pause_on_shiny and doodle_shiny) or 
+        if  build_chain == false or
+            (pause_on_shiny and doodle_shiny) or 
             (pause_on_anyskin and doodle_has_skin) or 
             (pause_on_anyskin and doodle_has_targetskin) or
             (pause_on_targetskin and doodle_has_targetskin) or 
             (pause_on_tint and doodle_tint) or 
             (pause_on_stars and doodle_stars) or 
             (pause_on_sm and doodle_stars and doodle_shiny) or
-            (pause_on_smht and doodle_stars and doodle_shiny and doodle_ht) or
-            build_chain == false then 
+            (pause_on_smht and doodle_stars and doodle_shiny and doodle_ht) 
+            then 
                 
             manual_pause()
         else 
