@@ -281,10 +281,14 @@ mainTab:Toggle("Auto Farm",function(t)
 end)
 
 
-mainTab:Toggle("Trainer Farm",function(t)
-    getgenv().trainerFarm = t
-    print("Trainer Farm toggled")
-    AutoTrainerFarm()
+mainTab:Toggle("Autofarm",function(t)
+    getgenv().autoFarm = t
+    print("autofarm toggled")
+    if t == true then 
+        AutoFarmDoods()
+    else 
+        print("Pausing the Autofarm ...")
+    end
 end)
 
 
