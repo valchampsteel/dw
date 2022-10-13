@@ -696,7 +696,7 @@ function VLib:Window(textgame)
 			DropdownHolder.BorderSizePixel = 0
 			DropdownHolder.Position = UDim2.new(0.0263156947, 0, 0.00326599111, 0)
 			DropdownHolder.Size = UDim2.new(0, 386, 0, 0)
-			DropdownHolder.ScrollBarThickness = 3
+			DropdownHolder.ScrollBarThickness = 6
 			DropdownHolder.CanvasSize = UDim2.new(0, 0, 0, 0)
 			DropdownHolder.ScrollBarImageColor3 = Color3.fromRGB(48, 50, 56)
 
